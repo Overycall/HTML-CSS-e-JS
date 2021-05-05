@@ -1,0 +1,221 @@
+<!--MODAL LOGIN-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="text-center">
+          {{#if query.login_attempt}}
+            {{>msg_loggin}}
+          {{/if}}
+        </div>
+        <form method="POST" action="/users/login">
+          <div class="form-group">
+            <label for="inputEmailLogin">Insira o e-mail:</label>
+            <input type="e-mail" class="form-control input-default" id="inputEmailLogin" aria-describedby="emailHelp"
+              placeholder="Digite seu email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordLogin">Insira a sua senha:</label>
+            <input type="password" class="form-control input-default" id="inputPasswordLogin"
+              aria-describedby="passwordHelp" placeholder="Digite sua senha" name="password">
+          </div>
+          <div class="form-group">
+            {{{captcha}}}
+            <button class="btn btn-lg" style="width: 100%;">ENTRAR</button>
+          </div>
+        </form>
+        <div class="form-group">
+          <a href="/users/auth/google" class="btn btn-social-midia">
+            <img src="/images/google-icon.svg" alt="Logo Google" width="28px">
+            <p style="padding-left: 5px;">ENTRAR COM O GOOGLE</p>
+          </a>
+        </div>
+        <div class="form-group">
+
+          <a href="/users/auth/facebook" class="btn btn-social-midia">
+            <img src="/images/facebook-3.svg" alt="Logo Facebook" width="32px">
+            <p style="padding-left: 5px;">ENTRAR COM O FACEBOOK</p>
+          </a>
+        </div>
+
+        <small class="d-block text-center"><a class="text-default" style="font-size:1rem;" href="/users/cadastrar">
+            Crie uma conta</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--FIM MODAL LOGIN-->
+
+<nav class="menu-section">
+  <div class="menu-toggle">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+
+
+  <ul class="nav">
+    <li class="nav-item active" id="home">
+      <a class="nav-link" href="#">INÍCIO <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+
+  <li class="nav-item input-search">
+    <form class="form-inline">
+      <input class="form-control input-default-search" type="search" placeholder="O que você procura?"
+        aria-label="Search"><i class="fas fa-search"></i>
+    </form>
+  </li>
+
+  <ul class="nav">
+    <!--
+    <li class="nav-item active">
+      <a class="nav-link" href="#">INÍCIO <span class="sr-only">(current)</span></a>
+    </li>
+    -->
+
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        PRODUTOS <i class="fas fa-caret-down"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/sobre">QUEM SOMOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contato">SEJA PARCEIRO</a>
+    </li>
+    <!-- "Não aparecerá aqui o FALE CONOSCO"
+    <li class="nav-item">
+      <a class="nav-link" href="/contato/cliente">FALE CONOSCO</a>
+    </li>
+    -->
+  </ul>
+
+  {{#if user}}
+  <li class="nav-item user-menu">
+    <div class="action">
+      <div class="profile" onclick="menuToggleUser();">
+        <img src="/images/product.png" alt="imagem usuario">
+      </div>
+      <h5>{{user.dataValues.name}}</h5>
+      <div class="menu">
+        <h3>{{user.dataValues.name}} {{user.dataValues.lastName}}</h3>
+        <ul>
+          <li><i class="fas fa-user-circle fa-fw"></i><a href="/users/profile/">Minha Conta</a></li>
+          <li><i class="fas fa-box-open fa-fw"></i><a href="#">Meus Pedidos</a></li>
+          <li><i class="fas fa-shopping-cart fa-fw"></i><a href="#">Carrinho</a></li>
+          <li><i class="fas fa-sign-out-alt fa-fw"></i><a href="/users/logout/">Sair</a></li>
+        </ul>
+      </div>
+    </li>
+  {{else}}
+    <li class=" nav-item login-button">
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"><i
+          class="fas fa-sign-in-alt icon-svg"></i>
+        <p>ENTRAR</p>
+      </a>
+    </li>
+  {{/if}}
+</nav>
+
+<div class="dropdown-menu menu-list">
+  <div class="menu-toogle-return">
+    <div class="return" id="leftArrow">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+  </div>
+  <div class="menu-toggle-list">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+  <div class="menu-item-body">
+    {{#each categorias}}
+    <div class="menu-list-item">
+      <div class="menu-list-header">
+        <img src="{{imagem}}" alt="categoria">
+        <h6>{{titulo}}</h6>
+      </div>
+      {{#each itens}}
+      <div class="menu-list-body">
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#">{{item1}} <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+<script>
+  function menuToggleUser() {
+    const toggleMenu = document.querySelector('.menu');
+    toggleMenu.classList.toggle('active');
+  }
+  $(document).ready(function () {
+
+    let url = window.location.href;
+    if (url.indexOf("login_attempt=true") > -1) {
+      $('#loginModal').modal('show');
+    }
+
+    if ($('#loginModal .alert').length) {
+      $('#loginModal').modal('show');
+    }
+  })
+
+  //Menu responsivo
+  let show = true;
+  const menuSection = document.querySelector(".menu-section");
+  const menuList = document.querySelector(".menu-list");
+  const leftArrow = document.querySelector("#leftArrow");
+  const closeList = document.querySelector(".menu-toggle-list")
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navbarDropdownMenuLink = document.querySelector("#navbarDropdownMenuLink");
+
+  menuToggle.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = show ? "hidden" : "initial"
+    menuSection.classList.toggle("on", show)
+    show = !show;
+
+    if (document.body.style.overflow == "hidden") {
+      $(".user-menu").css('visibility', 'hidden');
+      $("nav").css('display', 'block');
+    } else {
+      $(".user-menu").css('visibility', 'visible');
+      $("nav").css('display', 'flex');
+    }
+  })
+  navbarDropdownMenuLink.addEventListener("click", () => {
+    menuList.classList.toggle("on-menu-list")
+  })
+  leftArrow.addEventListener("click", () => {
+    menuList.classList.remove("on-menu-list");
+  })
+  closeList.addEventListener("click", () => {
+    menuList.classList.remove("on-menu-list");
+    document.body.style.overflow = show ? "hidden" : "initial"
+    menuSection.classList.toggle("on", show)
+    show = !show;
+
+    if (document.body.style.overflow == "hidden") {
+      $(".user-menu").css('visibility', 'hidden');
+      $("nav").css('display', 'block');
+    } else {
+      $(".user-menu").css('visibility', 'visible');
+      $("nav").css('display', 'flex');
+    }
+  })
+</script>

@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="/css/mainPage.css">
+
+<div id="mainPage">
+
+  <div class="banners">
+    <picture>
+      <source media="(max-width:480px)" srcset="{{banner.[0].srcsmall}}">
+      <img src="{{banner.[0].src}}" alt="background-image">
+    </picture>
+  </div>
+  <div class="card-product">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 img-product text-center">
+          <img class="img-responsive" src={{products.[0].src}} alt="product1">
+        </div>
+        <div class="col-lg-6 text-center" id="side-information">
+          <div class="description-product">
+            <div class="title">
+              <h5>{{products.[0].name}}</h5>
+            </div>
+            <div class="sub-title">
+              <div class="logo-parceiros">
+                <h6>CRIADO POR</h6>
+                <img class="img-responsive" src={{products.[0].art}} alt="product1">
+              </div>
+              <div class="logo-parceiros">
+                <h6>FABRICADO POR</h6>
+                <img class="img-responsive" src={{products.[0].manufactured}} alt="product1">
+              </div>
+            </div>
+            <div class="description">
+              {{products.[0].description}}
+            </div>
+            <div class="buy-button">
+              <button type="submit" class="btn btn-dk"><i class="fas fa-shopping-cart"></i>Invista em
+                você</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-product-banner">
+    <div class="container-fluid">
+      <div class="banner">
+        <img class="img-responsive" src="/images/banner-information.png" alt="product1">
+      </div>
+      {{#each products.[2].productPair0}}
+      {{>product_pair}}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="banners">
+    <picture>
+      <source media="(max-width:480px)" srcset="{{banner.[1].srcsmall}}">
+      <img src="{{banner.[2].src}}" alt="background-image">
+    </picture>
+  </div>
+
+  <div class="card-product">
+    <div class="container-fluid">
+      <div class="row">
+        {{#each products.[3].productPair1}}
+        <div class="{{#if @first}}img-product text-center{{else}}col-lg-6 img-product text-center{{/if}}">
+          <img class="img-responsive" src={{this.src}} alt="product1">
+          <div class="description-product">
+            <div class="title">
+              <h5>{{this.name}}</h5>
+            </div>
+            <div class="sub-title">
+              <div class="logo-parceiros">
+                <h6>CRIADO POR</h6>
+                <img class="img-responsive" src={{this.art}} alt="product1">
+              </div>
+              <div class="logo-parceiros">
+                <h6>FABRICADO POR</h6>
+                <img class="img-responsive" src={{this.manufactured}} alt="product1">
+              </div>
+            </div>
+          </div>
+          <div class="description">
+            {{this.description}}
+          </div>
+          <div class="buy-button">
+            <button type="submit" class="btn btn-dk"><i class="fas fa-shopping-cart"></i>Invista em
+              você</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="banners">
+  <picture>
+    <source media="(max-width:480px)" srcset="{{banner.[2].srcsmall}}">
+    <img src="{{banner.[2].src}}" alt="background-image">
+  </picture>
+</div>
+
+<div class="card-product">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 text-center" id="side-information">
+        <div class="description-product">
+          <div class="title">
+            <h5>{{products.[1].name}}</h5>
+          </div>
+          <div class="sub-title">
+            <div class="logo-parceiros">
+              <h6>CRIADO POR</h6>
+              <img class="img-responsive" src={{products.[1].art}} alt="product1">
+            </div>
+            <div class="logo-parceiros">
+              <h6>FABRICADO POR</h6>
+              <img class="img-responsive" src={{products.[1].manufactured}} alt="product1">
+            </div>
+          </div>
+          <div class="description">
+            {{products.[1].description}}
+          </div>
+          <div class="buy-button">
+            <button type="submit" class="btn btn-dk"><i class="fas fa-shopping-cart"></i>Invista em
+              você</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 img-product text-center">
+        <img class="img-responsive" src={{products.[1].src}} alt="product1">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="banners">
+  {{>carousel4products}}
+</div>
+
+<div class="card-product-banner">
+  <div class="container-fluid">
+    <div class="banner">
+      <img class="img-responsive" src="/images/banner-information.png" alt="product1">
+    </div>
+    {{#each products.[4].productPair2}}
+    {{>product_pair}}
+    {{/each}}
+  </div>
+</div>
+</div>

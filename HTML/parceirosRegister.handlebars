@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="/css/dropzone.min.css">
+<link rel="stylesheet" href="/css/registerBanners.css">
+<link rel="stylesheet" href="/css/registerPartners.css">
+
+
+<div class="whitebox_shadow">
+  <div class="head">
+    <h2>Novo parceiro</h2>
+    <div class="base"></div>
+  </div>
+
+  <form class="flex-grow-1 form-area" id="partnerForm" method="POST" action="/parceiros/cadastrar"
+    enctype="multipart/form-data">
+    <div class="partner_row">
+      <div class="partner_name">
+        <h5>Nome do parceiro:</h5>
+        <input type="text" name="name" id="inputName">
+      </div>
+      <div class="partner_status">
+        <h5>Parceria ativa:</h5>
+        <div class="div-check">
+          <label class="checkbox">
+            <input type="checkbox" name="active" id="inputActive">
+            <span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner_description">
+      <div class="title_description">
+        <h5>Descrição do parceiro:</h5>
+      </div>
+      <div class="description">
+        <textarea name="description" id="inputDescription" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+
+    <div class="link-category">
+      <div class="link">
+        <h5>Link para site do parceiro:</h5>
+        <input type="text" name="website" id="inputWebsite">
+      </div>
+
+      <div class="category">
+        <h5>Categoria:</h5>
+        <select class="form-select" name="partnership" id="inputPartnership" aria-label="Default select example">
+          <option selected>Escolha...</option>
+          <option value="creative">Especialista</option>
+          <option value="specialist">Criativo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="partner_row" id="margin-top-none">
+      <div class="partner_name">
+        <h5>Email:</h5>
+        <input type="text" name="email" id="inputEmail">
+      </div>
+    </div>
+
+    <div class="partner_row" id="margin-top-none">
+      <div class="partner_name">
+        <h5>Senha:</h5>
+        <input type="password" name="password" id="inputPassword">
+      </div>
+    </div>
+
+    <div class="partner_row" id="margin-top-none">
+      <div class="partner_name">
+        <h5>Confirmar senha:</h5>
+        <input type="password" name="confirmPassword">
+      </div>
+    </div>
+
+    <div class="drop_div">
+      <div class="column_left">
+        <h4>Adicione a imagem do selo do parceiro:</h4>
+        <div class="drop_zone">
+          <div class="dropzone" id="my-awesome-dropzone">
+            <div class="fallback">
+              <input name="logo" type="file" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="save">
+      <button type="submit" form="partnerForm" class="button_save" id="save"><i class="far fa-save"></i>Salvar</button>
+    </div>
+  </form>
+
+</div>
+
+
+<script type="text/javascript" src="/javascript/dropzone.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+  type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+  type="text/javascript"></script>
+<script type="text/javascript">
+  Dropzone.autoDiscover = false;
+//   var formData = new FormData(document.getElementById('partnerForm'));
+//   var myDropzone = new Dropzone("div#my-awesome-dropzone", {
+//     url: "/parceiros/cadastrar",
+//     paramName: "logo",
+//     maxFiles: 1,
+//     addRemoveLinks: true,
+//     autoProcessQueue: false,
+//     dictMaxFilesExceeded: "Você não pode adicionar mais imagens!"
+//   });
+//   $('#save').on("click", function (e) {
+//     // Make sure that the form isn't actually being sent.
+//     e.preventDefault();
+//     e.stopPropagation();
+//     myDropzone.processQueue();
+//   });
+</script>

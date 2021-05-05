@@ -1,0 +1,188 @@
+<div id="userProfile" class="container d-flex flex-column">
+  <div id="userData" class="d-flex flex-column">
+    <div class="title">
+      <h1>CADASTRO</h1>
+      <hr>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap p-4">
+      <form class="flex-grow-1 form-area" id="userForm" method="POST" action="/users/cadastrar">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputName">Nome:</label>
+            <input pattern="[a-zA-Z]+" type="text" class="form-control input-default" name="name" id="inputName"
+              placeholder="Nome" maxlength="30" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="inputLastName">Sobrenome:</label>
+            <input pattern="[a-zA-Z]+" type="text" class="form-control input-default" name="lastName" id="inputLastName"
+              placeholder="Sobrenome" maxlength="60" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail">E-mail:</label>
+          <input type="email" class="form-control input-default" name="email" id="inputEmail"
+            placeholder="nome@exemplo.com" maxlength="50" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputConfirmEmail">Confirmar e-mail:</label>
+          <input type="email" class="form-control input-default" name="confirmEmail" id="inputConfirmEmail"
+            placeholder="nome@exemplo.com" maxlength="50" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Senha:</label>
+          <input type="password" class="form-control input-default" name="password" id="inputPassword"
+            placeholder="••••••••" maxlength="70" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputConfirmPassword">Confirmar senha:</label>
+          <input type="password" class="form-control input-default" name="confirmPassword" id="inputConfirmPassword"
+            placeholder="••••••••" maxlength="70" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputCpf">CPF:</label>
+            <input type="text" class="form-control input-default" name="cpf" id="inputCpf" placeholder="___.___.___-__"
+              required>
+          </div>
+          <div class="form-group col-sm-5">
+            <label for="inputBirthday">Data de nascimento:</label>
+            <input type="text" class="form-control input-default" name="birthday" id="inputBirthday"
+              placeholder="__/__/____" maxlength="10" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPhone">Celular:</label>
+          <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control input-default" name="phone"
+            id="inputPhone" placeholder="(99) 99999-9999">
+        </div>
+      </form>
+
+      <div class="d-flex flex-column text-center align-items-center form-area flex-grow-1">
+        Escolha um ícone ou carregue a sua foto
+        <button type="submit" class="btn btn-dk px-5">Buscar imagem</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="addressData" class="d-flex flex-column p-3" style="display: none!important;">
+    <div class="title">
+      <h1>DADOS DE ENTREGA</h1>
+      <hr>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap">
+
+      <div class="flex-grow-1 form-area">
+        <nav class="navbar navbar-expand-lg p-0">
+          <ul class="nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#addressSelector" data-slide-to="0">Endereço 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#addressSelector" data-slide-to="1">Endereço 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#addressSelector" data-slide-to="1">Endereço 3</a>
+            </li>
+          </ul>
+          <a id="addAddressBtn" class="ml-2">
+            <img src="/images/plus.png" alt="Adicionar" onClick="addAddress()">
+          </a>
+        </nav>
+
+        <form id="AddressRegister" method="POST">
+          <div class="form-group">
+            <label for="inputPostalCode">CEP: </label>
+            <input type="text" class="form-control input-default" name="postalCode" id="inputPostalCode"
+              placeholder="99999-999">
+          </div>
+
+          <div class="row">
+            <div class="form-group col">
+              <label for="inputStreet">Endereço: </label>
+              <input type="text" class="form-control input-default" name="street" id="inputStreet"
+                placeholder="Endereço">
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="inputNumber">Número: </label>
+              <input type="text" class="form-control input-default" name="number" id="inputNumber" placeholder="999">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputComplement">Complemento (opcional): </label>
+            <input type="text" class="form-control input-default" name="complement" id="inputComplement"
+              placeholder="Complemento">
+          </div>
+
+          <div class="form-group">
+            <label for="inputNeighborhood">Bairro: </label>
+            <input type="text" class="form-control input-default" name="neighborhood" id="inputNeighborhood"
+              placeholder="Bairro">
+          </div>
+
+          <div class="row">
+            <div class="form-group col">
+              <label for="inputCity">Cidade:</label>
+              <input type="text" class="form-control input-default" name="city" id="inputCity" placeholder="Cidade" />
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="inputUf">Estado:</label>
+              <select class="form-control input-default" name="uf" id="inputUf">
+                <option value="">--</option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="map-icon d-flex justify-content-center align-items-center flex-grow-1 form-area">
+        <img src="/images/map.png" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mx-auto text-center">
+    <button id="submitBtn" type="submit" form="userForm" class="my-4 btn-submit btn btn-dk">Cadastrar</button>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+  type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+  type="text/javascript"></script>
+<script src="/javascript/users/users.js" type="text/javascript"></script>

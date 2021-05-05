@@ -1,0 +1,240 @@
+<link rel="stylesheet" href="/css/orders.css">
+
+<div class="bar">
+  <h4>MEUS PEDIDOS</h4><i class="fas fa-chevron-right" id="arrow_right"></i>
+  <h4>DETALHES</h4>
+</div>
+
+
+<div class="whitebox_shadow">
+  <h2>
+    {{#if (isEqual 0 pedido.status)}}
+      Aguardando confirmação
+    {{/if}}
+    {{#if (isEqual 1 pedido.status)}}
+      Pedido confirmado
+    {{/if}}
+    {{#if (isEqual 2 pedido.status)}}
+      Em produção
+    {{/if}}
+    {{#if (isEqual 3 pedido.status)}}
+      Controle de qualidade
+    {{/if}}
+    {{#if (isEqual 4 pedido.status)}}
+      Pedido em trânsito
+    {{/if}}
+    {{#if (isEqual 5 pedido.status)}}
+      Entregue
+    {{/if}}
+  </h2>
+
+  <h3>Número do Pedido: #{{pedido.num}}</h3>
+  <div class="Linha">
+    <div class="title-icon">
+      <i class="fas fa-user-check {{#if (isEqual 1 pedido.status)}}current-status{{/if}}"></i>
+      <p>Pedido confirmado</p>
+    </div>
+    <div class="aux">
+      <div class="linha"></div>
+      <p><br></p>
+    </div>
+
+    <div class="title-icon">
+      <i class="fas fa-diagnoses {{#if (isEqual 2 pedido.status)}}current-status{{/if}}"></i>
+      <p>Em Produção</p>
+    </div>
+    <div class="aux">
+      <div class="linha"></div>
+      <p><br></p>
+    </div>
+
+    <div class="title-icon">
+      <i class="fas fa-search {{#if (isEqual 3 pedido.status)}}current-status{{/if}}"></i>
+      <p>Controle de Qualidade</p>
+    </div>
+    <div class="aux">
+      <div class="linha"></div>
+      <p><br></p>
+    </div>
+
+    <div class="title-icon">
+      <i class="fas fa-truck {{#if (isEqual 4 pedido.status)}}current-status{{/if}}"></i>
+      <p>Em Trânsito</p>
+    </div>
+    <div class="aux">
+      <div class="linha"></div>
+      <p><br></p>
+    </div>
+
+    <div class="title-icon">
+      <i class="fas fa-home {{#if (isEqual 5 pedido.status)}}current-status{{/if}}"></i>
+      <p>Entregue</p>
+    </div>
+  </div>
+
+  <div class="status">
+    <h5>Status do Pedido</h5><a href="#" data-toggle="modal" data-target="#siteModal"><i class="fas fa-chevron-right"
+        id="arrow_right"></i></a>
+  </div>
+
+
+  <div class="information">
+    <div class="info1">
+      <div class="info">
+        <h6>Data da compra:</h6>
+        <h2>{{pedido.data}}</h2>
+      </div>
+      <div class="info">
+        <h6>Valor do pedido:</h6>
+        <h2>{{pedido.valor}}</h2>
+      </div>
+    </div>
+    <div class="info2">
+      <div class="info">
+        <h6>Método de Pagamento</h6>
+        <h2>{{pedido.pagamento}}</h2>
+      </div>
+      <div class="info">
+        <h6>Código de Rastreio</h6>
+        <h2>{{pedido.codigo}}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="products">
+      <div class="sub">
+        <h5>Produto</h5>
+        <h5 id="descript">Descrição</h5>
+      </div>
+      {{#each produto}}
+        <div class="subs">
+          <h5>Produto</h5>
+        </div>
+        <div class="image-product">
+          <img src="{{imagem}}" alt="image-product">
+          <h6>{{description}}</h6>
+        </div>
+        <a href="#">
+          <h6 class="click">Clique aqui e veja imagens da produção do seu produto personalizado.</h6>
+        </a>
+        <br>
+        <div class="trace"></div>
+      {{/each}}
+    </div>
+
+
+    <div class="banners">
+      <div class="sub-production">
+        <h5>Acompanhe a produção:</h5>
+      </div>
+
+      {{#each produto}}
+        <div id="carouselExampleIndicators{{@index}}" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div id="carousel">
+                {{#each carrossel.slide1}}
+                  <img class="d-block w-25" src="{{imagem}}" alt="First slide">
+                {{/each}}
+              </div>
+
+            </div>
+            <div class="carousel-item">
+              <div id="carousel">
+                {{#each carrossel.slide2}}
+                  <img class="d-block w-25" src="{{imagem}}" alt="Second slide">
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators{{@index}}" role="button" data-slide="prev">
+            <i id="icons" class="fas fa-chevron-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators{{@index}}" role="button" data-slide="next">
+            <i id="icons" class="fas fa-chevron-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+          <a href="#">
+            <h6>**Clique para mais informações sobre o processo</h6>
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+
+  <div class="buy-button">
+    <a href="#">
+      <button type="submit" class="btn btn-dk">Voltar a Meus Pedidos</button>
+    </a>
+  </div>
+
+
+
+  <!-- Modal -->
+  <!--
+  <div class="modal fade" id="siteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>x</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <h5>Pedido em trânsito</h5>
+          <div class="coluna">
+            <div class="title-icon">
+              <i class="fas fa-user-check"></i>
+              <p>Pedido confirmado</p>
+            </div>
+            <div class="aux">
+              <div class="linha"></div>
+              <p><br></p>
+            </div>
+
+            <div class="title-icon">
+              <i class="fas fa-diagnoses"></i>
+              <p>Em Produção</p>
+            </div>
+            <div class="aux">
+              <div class="linha"></div>
+              <p><br></p>
+            </div>
+
+            <div class="title-icon">
+              <i class="fas fa-search"></i>
+              <p>Controle de Qualidade</p>
+            </div>
+            <div class="aux">
+              <div class="linha"></div>
+              <p><br></p>
+            </div>
+
+            <div class="title-icon">
+              <i class="fas fa-truck"></i>
+              <p>Em Trânsito</p>
+            </div>
+            <div class="aux">
+              <div class="linha"></div>
+              <p><br></p>
+            </div>
+
+            <div class="title-icon">
+              <i class="fas fa-home"></i>
+              <p>Entregue</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  -->
+
+
+</div>

@@ -1,0 +1,268 @@
+@import "../colors";
+
+body{
+  background-color: $background-base-color
+}
+
+  .whitebox_shadow {
+    background-color: $light-base-color;
+    width: 95%;
+    margin: auto;
+    margin-top: 3%;
+    border: 1px solid rgba(135, 123, 121, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    h4{
+      font-size: 1.5vw;
+    }
+
+    p{
+      font-size: 1.15vw;
+    }
+
+    .head{
+      display: block;
+      width: 95%;
+      margin: auto;
+      margin-top: 2%;
+      position: relative;
+
+      .base{
+        border-top: 1px solid $grey_light-base-color;
+        width: 100%;
+        position: absolute;
+        top: 115%;
+      }
+    }
+
+    .medium_box_shadow{
+      display: block;
+      background-color: $light-base-color;
+      width: 95%;
+      margin: auto;
+      margin-top: 3%;
+      margin-bottom: 3%;
+      border: 1px solid rgba(135, 123, 121, 0.2);
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+
+      .title-banner{
+        width: 95%;
+        margin: auto;
+        margin-top: 1.5%;
+        margin-bottom: 2%;
+
+        h4{
+          -webkit-text-stroke: thin;
+        }
+      }
+
+      .drop_div{
+        display: flex;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 5%;
+
+        h4{
+          color: $bluegreen-base-color;
+          margin-bottom: 0;
+        }
+
+        .column_left{
+          display: block;
+          width: 60%;
+          -webkit-text-stroke: thin;
+
+          .drop_zone{
+            width: 80%;
+            margin-top: 3%;
+
+            .dropzone{
+              .dz-message{
+                .dz-button{
+                  font-size: 1.1vw;
+                }
+              }
+            }
+          }
+        }
+
+        .column_right{
+          display: block;
+          width: 40%;
+          -webkit-text-stroke: thin;
+
+          h4{
+            margin-bottom: 3%;
+          }
+
+          p{
+            line-height: normal;
+          }
+        }
+      }
+
+      .save{
+        display: flex;
+        justify-content: flex-end;
+
+        .button_save{
+          background-color: $bluegreen-base-color;
+          color: $grey_light-base-color;
+          width: 11vw;
+          height: 3.5vw;
+          border: solid 0;
+          border-radius: 30px;
+          font-size: 1.5vw;
+          -webkit-text-stroke: thin;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 20px 20px 0;
+
+          &:focus{
+            outline: none;
+          }
+        }
+
+        .fa-save{
+          font-size: 2.7vw;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1025px) {
+    .whitebox_shadow{
+      .medium_box_shadow{
+        .dropzone{
+          min-height: 200px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .whitebox_shadow{
+      .medium_box_shadow{
+        h4{
+          font-size: 3vw;
+        }
+
+        p{
+          font-size: 1.97vw;
+        }
+
+        .drop_div{
+          width: 100%;
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+
+          h4{
+            text-align: center;
+          }
+
+          .column_left{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5%;
+
+
+            .dropzone{
+              .dz-message{
+                .dz-button{
+                  font-size: 2.5vw !important;
+                }
+              }
+            }
+          }
+
+          .column_right{
+            margin-top: 5%;
+            width: 80%;
+            text-align: center;
+          }
+        }
+
+        .save{
+          justify-content: center;
+
+          .button_save{
+            width: 17vw;
+            height: 6vw;
+            font-size: 2.5vw;
+          }
+
+          .fa-save{
+            font-size: 4vw;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .whitebox_shadow{
+      .head{
+        h2{
+          font-size: 6.5vw;
+        }
+      }
+
+      h4{
+        font-size: 3.77vw !important;
+      }
+
+      .medium_box_shadow{
+        .drop_div{
+          .column_right{
+            p{
+              font-size: 3vw;
+            }
+          }
+        }
+
+        .save{
+          .button_save{
+            width: 25vw;
+            height: 9vw;
+            font-size: 4vw;
+          }
+
+          .fa-save{
+            font-size: 6vw;
+            margin-right: 10px;
+          }
+        }
+
+        .dropzone{
+          min-height: auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 426px) {
+    .whitebox_shadow{
+      .drop_div{
+        .column_left{
+          .drop_zone{
+            .dropzone{
+              .dz-message{
+                .dz-button{
+                  font-size: 3vw !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

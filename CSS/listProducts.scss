@@ -1,0 +1,54 @@
+@import '../colors';
+
+.input-group ,.mb-3{
+
+    input {
+        border-right: none;
+    }
+
+    .input-group-append {
+        .input-group-text{
+            border: 1px solid $main-color;
+            border-radius: 0px 20px 20px 0px;
+            background-color: white;
+            .fas, .fa-search{
+                color: $main-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.list-group-item{
+    display: flex; 
+    justify-content: center;
+    border: none;
+
+    .img-fluid{
+        max-width: 130px;
+        max-height: 130px;
+        border-radius: 100px;
+    }
+
+    .row{
+        .col{
+            padding-left: 0px; 
+            padding-right: 0px;
+
+            .btn-lg-danger{
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+
+.container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card{
+    margin-top: 10px;
+}
+

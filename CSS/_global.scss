@@ -1,0 +1,106 @@
+@import "colors";
+
+body {
+    font-size: 60%;
+}
+
+@media (min-width: 700px) {
+    body {
+        font-size: 62.5%;
+    }
+}
+
+.btn-lg {
+    background: $btn-primary;
+    color: $text-btn-primary;
+    border-radius: 20px;
+    font-size: 1.05rem;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:hover {
+        background: darken($color: $btn-primary, $amount: 10);
+        color: $text-btn-primary;
+    }
+}
+
+.btn-social-midia {
+    background: $btn-social-midia;
+    color: $text-btn-primary-dk;
+    border-radius: 20px;
+    border-color: $main-color;
+    font-size: 1.05rem;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:hover {
+        background: $btn-primary;
+        color: white;
+    }
+}
+
+//CSS Button Dark with shooping cart
+
+.btn-dk {
+    background: $btn-primary-dk;
+    color: $text-btn-primary-dk;
+    border-radius: 20px;
+    font-size: 1rem;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .fa-shopping-cart {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        background: lighten($color: $btn-primary-dk, $amount: 20);
+        color: $text-btn-primary-dk;
+    }
+}
+
+.btn-lg-danger {
+    background: red;
+    color: $text-btn-primary;
+    font-size: 1.05rem;
+    border-radius: 20px;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:hover {
+        background: darken($color: red, $amount: 10);
+    }
+}
+
+.text-default {
+    color: $main-color !important;
+}
+
+a.text-default:hover,
+a.text-default:focus {
+    color: #a87602 !important;
+}
+
+.input-default {
+    border-radius: 20px;
+    border: solid 2px;
+    border-color: $main-color;
+    &:focus {
+        border-color: $main-color;
+        box-shadow: 0 0 0 0.2rem rgba(218, 153, 3, 0.5);
+    }
+}
+.input-default-search {
+    border-radius: 20px;
+    border-color: $main-color;
+    background-color: transparent;
+    height: 30px;
+    &:focus {
+        border-color: $main-color;
+        box-shadow: 0 0 0 0.2rem rgba(218, 153, 3, 0.5);
+    }
+}
